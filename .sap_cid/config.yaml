@@ -1,10 +1,13 @@
 ---
 stages:
   build:
-    buildTool: "mta"                                     # "mta", "npm", or "maven"
-    buildToolVersion: "MBTJ21N22"                        # depends on buildTool value; see the following table
+    buildTool: "mta"
     buildDescriptor: "mta.yaml"
-    mavenStaticCodeChecks: {}                            # only valid if you use the "mta" or" "maven" build tool
-    npmScript: "tests_script"                            # only valid if you use the "npm" build tool 
-    npmLint:                                             # only valid if you use the "mta" or "npm" build tool
-      failOnError: true
+    buildToolVersion: "MBTJ21N22"
+  malwareScan:
+    scan: false
+  release:
+    cloudTransportManagement:
+      nodeOperation: "export"
+      nodeName: "DEV"
+      credential: "sue-ctms-service-key"
